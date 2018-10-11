@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Ejercicios VUE</title>
+</head>
+
+<body>
+    <div id="my-list" class="container">
+        <h1>Animales</h1>
+        <ul>
+            <li v-for="animal in animals">{{ animal }}</li>
+        </ul>
+        <input type="text" v-model="name" v-on:keyup.enter="addName">
+    </div>
+
+    <hr>
+
+    <div id="cambio-titulo" class="container">
+        <h1>Cambio de Título</h1>
+        <input type="text" v-model="newTitle" placeholder="Escribe aquí tu título">
+        <p v-bind:title="newTitle">{{ newTitle }}</p>
+    </div>
+
+    <hr>
+
+    <div id="tutorial-show" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Ejemplo Show</h1>
+            </div>
+            <div class="col-md-5">
+                <input type="text" v-model="email" class="form-control">
+            </div>
+            <div class="col-md-1">
+                <input type="submit" v-show="email" class="btn btn-primary">
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div id="tutorial-verdad" class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <template v-if="!message">
+                    <h3>Escribe tu sugerencia</h3>
+                    <p>El equipo de soporte responderá en un máximo de 24 horas</p>
+                    <p>Podrías utilizar facebook para comunicarte</p>
+                </template>
+                <h3 v-else>Presiona ENTER para enviar</h3>
+                <textarea v-model="message" class="form-control"></textarea>
+            </div>
+            <div class="col-md-7">
+                <h3>JSON</h3>
+                <pre>
+                    {{ $data }}
+                </pre>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div id="tutorial-eventos" class="container">
+        <div class="row">
+            <div class="col-8">
+                <h2>Eventos de Vue</h2>
+            </div>
+            <div class="col-4">
+                <button v-on:click="num += 1"> Me gusta {{ num }}</button>
+            </div>
+            <div class="col-12">
+                <form v-on:submit.prevent="addName">
+                    <div class="input-group">
+                        <input type="text" class="form-control" v-model="name">
+                        <span class="input-group-append">
+                            <input type="submit" class="btn btn-primary" value="add">
+                        </span>
+                    </div>
+                    <hr>
+                    <ul class="list-group">
+                        <li class="list-group-item" v-for="item in people" v-text="item"></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

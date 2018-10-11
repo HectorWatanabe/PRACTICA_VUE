@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<title>Ejercicios Vue - Axios</title>
+</head>
+
+<body>
+	
+	<div id="my-axios-ajax" class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h1>Lista Vue - Ajax</h1>
+                <ul class="list-group">
+                    <li v-for="item in listAxios" class="list-group-item">
+                        {{ item.name.first }} {{ item.name.last }}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-8">
+                <h1>JSON</h1>
+                <pre>
+                    {{ $data }}
+                </pre>
+            </div>
+        </div>
+    </div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+	<script src="js/practica-axios.js"></script>
+</body>
+
+</html>
